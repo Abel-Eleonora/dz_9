@@ -3,12 +3,12 @@ package com.company;
 public class Address {
 
     private String city, street;
-    private int id;
+    private int houseNumber;
 
-    public Address(String city, String street, int id) {
+    public Address(String city, String street, int houseNumber) {
         this.city = city;
         this.street = street;
-        this.id = id;
+        this.houseNumber = houseNumber;
     }
 
     public String getCity() {
@@ -27,11 +27,11 @@ public class Address {
         this.street = street;
     }
 
-    public int getId() {
-        return id;
+    public int getHouseNumber() {
+        return houseNumber;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setHouseNumber(int houseNumber) {
+        this.houseNumber = houseNumber;
     }
 }

@@ -1,6 +1,6 @@
 package com.company;
 
-import java.io.IOException;
+
 
 public class PersonCsvUtil {
     public static final String DELIMITER = ";";
@@ -16,7 +16,7 @@ public class PersonCsvUtil {
                 person.getLastname() + DELIMITER +
                 person.getAddress().getCity() + DELIMITER +
                 person.getAddress().getStreet() + DELIMITER +
-                person.getAddress().getId() + "\n";
+                person.getAddress().getHouseNumber() + "\n";
     }
 
     // Преобразование строки из csv-файла к объекту:
@@ -32,9 +32,9 @@ public class PersonCsvUtil {
         String lastName = dataArray[1];
         String city = dataArray[2];
         String street = dataArray[3];
-        int id = Integer.parseInt(dataArray[4]);
+        int houseNumber = Integer.parseInt(dataArray[4]);
 
-        return new Person(firstName, lastName,  new Address(city, street, id));
+        return new Person(firstName, lastName,  new Address(city, street, houseNumber));
 
     }
 
