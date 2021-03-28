@@ -38,7 +38,7 @@ public class Person {
     @Override
     public String toString(){
         return (getFirstname() + " " + getLastname() + ", Address: " + address.getHouseNumber() + ", " +
-                address.getStreet() + ", " +  address.getCity() + ";");
+                address.getStreet() + ", " +  address.getCity()  + ";");
     }
 
 

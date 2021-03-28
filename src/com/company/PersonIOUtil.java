@@ -32,15 +32,25 @@ public class PersonIOUtil {
     public static List<Person> readPerson (String fileName) throws IOException, EmptySourceFileException {
 
         List<Person> persons = new ArrayList<>();
-//        if (fileName == null){
-//            throw new EmptySourceFileException("Файл не существует или он пустой");
-//        }
+
+
+
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
+
+            reader.readLine();
+
+            if (reader.readLine() == null){
+                throw new EmptySourceFileException("Ошибка, файл пуст!");
+            }
+
             String csvString;
+
             while ((csvString = reader.readLine()) != null){
                 Person person = PersonCsvUtil.toObject(csvString);
                 persons.add(person);
             }
+
+//
         } catch (CsvException e){
             e.printStackTrace();
         }

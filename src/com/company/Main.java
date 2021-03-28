@@ -1,8 +1,11 @@
 package com.company;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.rmi.server.LogStream.log;
 
 public class Main {
 
@@ -40,12 +43,17 @@ public class Main {
 
             PersonIOUtil personIOUtil1 = new PersonIOUtil();
             try{
+
                 List<Person> personsFromFile = personIOUtil1.readPerson("E:\\javaDz9\\data.csv");
                 System.out.println(personsFromFile);
 
-            } catch (EmptySourceFileException e){
-                e.printStackTrace();
+            } catch (FileNotFoundException e){
+                System.out.println("Ошибка, файла не существует");
+
             } catch (IOException e){
+                e.printStackTrace();
+
+            } catch (EmptySourceFileException e){
                 e.printStackTrace();
             }
 
